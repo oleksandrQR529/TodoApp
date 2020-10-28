@@ -99,9 +99,11 @@
 		049CC6532549502100B6442C /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				049CC689254950CB00B6442C /* Model */,
+				049CC688254950C500B6442C /* View */,
+				049CC687254950BA00B6442C /* Controller */,
 				049CC6542549502100B6442C /* AppDelegate.swift */,
 				049CC6562549502100B6442C /* SceneDelegate.swift */,
-				049CC6582549502100B6442C /* ViewController.swift */,
 				049CC65A2549502100B6442C /* Main.storyboard */,
 				049CC65D2549502800B6442C /* Assets.xcassets */,
 				049CC65F2549502800B6442C /* LaunchScreen.storyboard */,
@@ -126,6 +128,28 @@
 				049CC6782549502900B6442C /* Info.plist */,
 			);
 			path = todoUITests;
+			sourceTree = "<group>";
+		};
+		049CC687254950BA00B6442C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				049CC6582549502100B6442C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		049CC688254950C500B6442C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		049CC689254950CB00B6442C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
