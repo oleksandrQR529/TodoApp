@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		049CC6552549502100B6442C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CC6542549502100B6442C /* AppDelegate.swift */; };
 		049CC6572549502100B6442C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CC6562549502100B6442C /* SceneDelegate.swift */; };
-		049CC6592549502100B6442C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CC6582549502100B6442C /* ViewController.swift */; };
 		049CC65C2549502100B6442C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049CC65A2549502100B6442C /* Main.storyboard */; };
 		049CC65E2549502800B6442C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049CC65D2549502800B6442C /* Assets.xcassets */; };
 		049CC6612549502800B6442C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049CC65F2549502800B6442C /* LaunchScreen.storyboard */; };
 		049CC66C2549502800B6442C /* todoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CC66B2549502800B6442C /* todoTests.swift */; };
 		049CC6772549502800B6442C /* todoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049CC6762549502800B6442C /* todoUITests.swift */; };
+		04E7A8A9254951B300164E0E /* TodoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A8A8254951B300164E0E /* TodoVC.swift */; };
+		04E7A8B1254957A900164E0E /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A8B0254957A900164E0E /* TodoCell.swift */; };
+		04E7A8B9254993EC00164E0E /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A8B8254993EB00164E0E /* Todo.swift */; };
+		04E7A8BE254995CC00164E0E /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A8BD254995CC00164E0E /* APIError.swift */; };
+		04E7A8C4254996E600164E0E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E7A8C3254996E600164E0E /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,6 @@
 		049CC6512549502100B6442C /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049CC6542549502100B6442C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049CC6562549502100B6442C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		049CC6582549502100B6442C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		049CC65B2549502100B6442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049CC65D2549502800B6442C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		049CC6602549502800B6442C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		049CC6722549502800B6442C /* todoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = todoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049CC6762549502800B6442C /* todoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoUITests.swift; sourceTree = "<group>"; };
 		049CC6782549502900B6442C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E7A8A8254951B300164E0E /* TodoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoVC.swift; sourceTree = "<group>"; };
+		04E7A8B0254957A900164E0E /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		04E7A8B8254993EB00164E0E /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		04E7A8BD254995CC00164E0E /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		04E7A8C3254996E600164E0E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 		049CC6532549502100B6442C /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				04E7A8C22549967700164E0E /* Services */,
 				049CC689254950CB00B6442C /* Model */,
 				049CC688254950C500B6442C /* View */,
 				049CC687254950BA00B6442C /* Controller */,
@@ -133,7 +142,7 @@
 		049CC687254950BA00B6442C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				049CC6582549502100B6442C /* ViewController.swift */,
+				04E7A8A8254951B300164E0E /* TodoVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +150,7 @@
 		049CC688254950C500B6442C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04E7A8B0254957A900164E0E /* TodoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,8 +158,18 @@
 		049CC689254950CB00B6442C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04E7A8B8254993EB00164E0E /* Todo.swift */,
+				04E7A8BD254995CC00164E0E /* APIError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04E7A8C22549967700164E0E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04E7A8C3254996E600164E0E /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049CC6592549502100B6442C /* ViewController.swift in Sources */,
 				049CC6552549502100B6442C /* AppDelegate.swift in Sources */,
 				049CC6572549502100B6442C /* SceneDelegate.swift in Sources */,
+				04E7A8A9254951B300164E0E /* TodoVC.swift in Sources */,
+				04E7A8B1254957A900164E0E /* TodoCell.swift in Sources */,
+				04E7A8B9254993EC00164E0E /* Todo.swift in Sources */,
+				04E7A8BE254995CC00164E0E /* APIError.swift in Sources */,
+				04E7A8C4254996E600164E0E /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
