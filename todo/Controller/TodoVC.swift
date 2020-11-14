@@ -21,16 +21,19 @@ class TodoVC: UIViewController {
     }
     
     func initUI() {
+        getTodos()
+        
+        todoTable.delegate = self
+        todoTable.dataSource = self
+    }
+    
+    func getTodos() {
         NetworkService.instance.getTodos { (todos) in
             self.todos = todos.items
             self.todoTable.reloadData()
         } onError: { (errorMessage) in
             debugPrint(errorMessage)
         }
-
-        
-        todoTable.delegate = self
-        todoTable.dataSource = self
     }
     
     @IBAction func addTodo(_ sender: Any) {
