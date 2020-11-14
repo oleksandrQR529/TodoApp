@@ -23,25 +23,10 @@ class NetworkService {
         
         let task = session.dataTask(with: url) { (data, response, error) in
             
-            DispatchQueue.main.async {
-                if let error = error {
-                    onError(error.localizedDescription)
-                    return
-                }
-                
-                guard let data = data, let response = response as? HTTPURLResponse else { return }
-                
-                do{
-                    if response.statusCode == 200 {
-                        let items = try JSONDecoder().decode(Todos.self, from: data)
-                        onSuccess(items)
-                    }else {
-                        let err = try JSONDecoder().decode(APIError.self, from: data)
-                        onError(err.message)
-                    }
-                }catch let jsonError{
-                    onError(jsonError.localizedDescription)
-                }
+            self.connectToURl(error: error, response: response, data: data) { (todos) in
+                onSuccess(todos)
+            } onError: { (errorMessage) in
+                onError(errorMessage)
             }
         }
         task.resume()
@@ -60,28 +45,10 @@ class NetworkService {
             
             let task = session.dataTask(with: request) { (data, response, error) in
                 
-                DispatchQueue.main.async {
-                    if let error = error {
-                        onError(error.localizedDescription)
-                        return
-                    }
-                    
-                    guard let data = data, let response = response as? HTTPURLResponse else {
-                        onError("Invalid data from response")
-                        return
-                    }
-                    
-                    do{
-                        if response.statusCode == 200 {
-                            let items = try JSONDecoder().decode(Todos.self, from: data)
-                            onSuccess(items)
-                        }else {
-                            let err = try JSONDecoder().decode(APIError.self, from: data)
-                            onError(err.message)
-                        }
-                    }catch{
-                        onError(error.localizedDescription)
-                    }
+                self.connectToURl(error: error, response: response, data: data) { (todos) in
+                    onSuccess(todos)
+                } onError: { (errorMessage) in
+                    onError(errorMessage)
                 }
             }
             task.resume()
@@ -89,4 +56,32 @@ class NetworkService {
             onError(error.localizedDescription)
         }
     }
+
+    func connectToURl(error: Error?, response: URLResponse? , data: Data? , onSuccess: @escaping OnApiSuccess, onError: @escaping OnApiError) {
+        
+        DispatchQueue.main.async {
+            if let error = error {
+                onError(error.localizedDescription)
+                return
+            }
+            
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                onError("Invalid data from response")
+                return
+            }
+            
+            do{
+                if response.statusCode == 200 {
+                    let items = try JSONDecoder().decode(Todos.self, from: data)
+                    onSuccess(items)
+                }else{
+                    let err = try JSONDecoder().decode(APIError.self, from: data)
+                    onError(err.message)
+                }
+            }catch{
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
 }
