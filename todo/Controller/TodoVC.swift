@@ -37,6 +37,23 @@ class TodoVC: UIViewController {
     }
     
     @IBAction func addTodo(_ sender: Any) {
+        
+        guard let todoItem = todoItemTxt.text else {
+            //show error: "you must enter a todo item"
+            return
+        }
+        
+        let todo = Todo(item: todoItem, priority: prioritySegment.selectedSegmentIndex)
+        
+        NetworkService.instance.addTodo(todo: todo) { (todos) in
+            self.todos = todos.items
+            self.todoItemTxt.text = ""
+            self.todoTable.reloadData()
+        } onError: { (errorMessage) in
+            debugPrint(errorMessage)
+        }
+
+        
     }
     
 }
